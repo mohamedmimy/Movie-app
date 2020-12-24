@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-dark  fixed-top">
+  <a class="navbar-brand" href="#"><i class="fas fa-film    "></i> <span>Movies</span></a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Treanding Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/trending-tv'> TvShows</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Link</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ulSpace ml-auto pt-3 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active "  routerLink='/register'>Sign Up</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"  routerLink='/signin'>Sign in</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,18 @@
+<!-- ========================== treandingTv  =============================== -->
+<div class="tranding-tv my-5">
+  <div class="row">
+    <div class="col-md-4 d-flex align-items-center">
+      <h2>
+        Treanding Tv <br>
+        Right Now
+      </h2>
+    </div>
+    <div *ngFor = 'let tv of trendingTv' class="col-md-2 text-center  font-italic text-muted">
+      <img [src]= "imgPrefix+tv.poster_path" class="w-100 rounded">
+      <h5>{{tv.name}}</h5>
+      <div class="vote rounded-bottom">
+        <p>{{tv.vote_average}}</p>
+      </div>
+    </div>
+  </div>
+</div>

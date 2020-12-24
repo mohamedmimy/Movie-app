@@ -1,0 +1,23 @@
+<section id="home" class="my-5"> <!-- ========================== treanding-Movies ========================== -->
+  <div class="container-fulid mt-5 p-3">
+  <a [routerLink]="['/moviedetails' ]">
+    <div class="treanding-movies mb-5">
+      <div class="row pt-3">
+        <div class="col-md-4 d-flex align-items-center">
+          <h2>
+            Treanding Movies <br>
+            Right Now
+          </h2>
+        </div>
+          <div *ngFor = 'let movie of treandingMovies' class="col-md-2 text-center p-3  font-italic text-muted">
+            <img [src]= "imgPrefix+movie.poster_path" class="w-100 rounded">
+            <h5>{{movie.title}}</h5>
+            <div class="vote rounded-circle outline">
+              <p>{{movie.vote_average}}</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </a>
+</div>
+</section>

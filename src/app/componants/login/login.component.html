@@ -1,0 +1,23 @@
+<section id="login" class="my-5">
+  <div *ngIf= 'err' class="alert alert-danger my-2"> {{ err }} </div>
+  <form [formGroup]='signinForm' (ngSubmit)=' getFormData(signinForm)' class="w-50 m-auto py-5 form-group">
+
+    <div class="formgrop my-2">
+      <label for="">E-mail :</label>
+      <input [class.is-invalid]= 'signinForm.get("email").invalid == true && signinForm.get("password").touched == true'
+       formControlName='email' type='email' class="form-control">
+      <span *ngIf="signinForm.get('email').invalid == true && signinForm.get('email').touched == true" class="text-danger d-block p-2">email not Valid</span>
+    </div>
+
+    <div class="formgrop">
+      <label for="">password :</label>
+      <input [class.is-invalid]= 'signinForm.get("password").invalid == true && signinForm.get("password").touched == true'
+      formControlName='password' type='password' class="form-control">
+      <span *ngIf="signinForm.get('password').invalid == true && signinForm.get('password').touched == true" class="text-danger d-block p-2">password not Valid</span>
+    </div>
+    <div class="py-2">
+      <a routerLink='/register'>SignUp..?</a>
+    </div>
+    <button [disabled]='signinForm.invalid == true' type="submit" class="btn btn-info py-2 my-3">sign in</button>
+  </form>
+</section>
