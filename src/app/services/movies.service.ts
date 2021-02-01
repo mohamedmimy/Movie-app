@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +20,10 @@ export class MoviesService {
   getMovieDetails(id): Observable<any> // To get api MovieDetails
   {
     return this._HttpClient.get(`https://api.themoviedb.org/3/movie/${id}?api_key=df2c9d374981a8a4a109421390d27420&language=en-US`);
+  }
+  getUpComingMovies(): Observable<any> // To get api MovieDetails
+  {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=df2c9d374981a8a4a109421390d27420&language=en-US&page=1`);
   }
 }
 

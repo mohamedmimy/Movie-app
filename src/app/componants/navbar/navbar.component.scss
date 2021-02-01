@@ -1,12 +1,3 @@
-// .slash
-// {
-//   position: relative;
-//   bottom: 4px;
-//   left: 0px;
-//   margin:0 8px 0 8px 0 ;
-//   font-size: 1rem;
-//   font-weight: 150;
-// }
 .navbar
 {
   background-color: rgba(76, 82, 168, 0.678);
@@ -34,6 +25,23 @@
     font-size: 1.1rem;
     font-weight: bold;
     padding: 10px 20px ;
+   }
+   .dropdown
+   {
+     margin-right: 5rem;
+      .dropdown-item:hover
+      {
+        background-color: rgba(50, 49, 100, 0.705);
+        color: white;
+      }
+   }
+   .btColor
+   {
+     background-color: rgba(50, 49, 100, 0.705);
+     color: white;
+     select:focus, button:focus{
+      outline: none;
+     }
    }
 
 }

@@ -3,7 +3,6 @@ import { FormControl, FormGroup , Validators} from '@angular/forms';
 import {AuthService} from 'src/app/services/auth.service';
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -21,37 +20,26 @@ export class RegisterComponent implements OnInit {
     email: new FormControl ( null , [Validators.required, Validators.email]),
     password: new FormControl ( null , [Validators.required, Validators.pattern(/^([a-zA-Z]+[,.]?[]?|[a-z]+['-]?)+/)]),
   });
-
-
+  
   ngOnInit(): void {
   }
 
   getFormData(formData)
   {
-    console.log(formData);
-
-    // tslint:disable-next-line: triple-equals
     if ( formData.valid == true)
     {
-      return this._AuthService.signUp(formData.value).subscribe(
-        // tslint:disable-next-line: triple-equals
-        data =>
-        {
-        // tslint:disable-next-line: triple-equals
-          if ( data.nessage == 'success')
+       this._AuthService.signUp(formData.value).subscribe(data =>{
+
+          if ( data.message == 'success')
          {
-          this._Router.navigate(['/signin']);
+           this._Router.navigate(['/signin']);
          }
          else
          {
           this.err = 'mail is already existed ';
          }
-
         }
-
       );
     }
-
   }
-
 }

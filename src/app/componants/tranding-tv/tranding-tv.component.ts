@@ -11,7 +11,7 @@ export class TrandingTvComponent implements OnInit {
   imgPrefix = 'https://image.tmdb.org/t/p/w500/';
 
   // tslint:disable-next-line: variable-name
-  constructor( _MoviesService: MoviesService)
+  constructor(public _MoviesService: MoviesService)
    {
     _MoviesService.getTrendingTv().subscribe(
       (data) => {this.trendingTv = data.results; },

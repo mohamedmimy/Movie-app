@@ -22,19 +22,15 @@ export class LoginComponent implements OnInit {
   }
   getFormData(formData)
   {
-
-    // tslint:disable-next-line: triple-equals
     if ( formData.valid == true)
     {
 
-      this._AuthService.signIn(formData.value).subscribe(
-        (data) =>
+      this._AuthService.signIn(formData.value).subscribe(res =>
         {
-
-          // tslint:disable-next-line: triple-equals
-          if (data.message == 'success')
+          if (res.message == 'success')
           {
-            this._AuthService.saveUserData(data.user , data.token);
+            localStorage.setItem("TOKEN", res.token)
+            this._AuthService.saveUserData(res.user , res.token);
             this._Router.navigate(['/home']);
           }
           else

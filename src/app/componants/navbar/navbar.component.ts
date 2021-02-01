@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from 'src/app/services/auth.service';
 
@@ -7,13 +8,9 @@ import {AuthService} from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  // tslint:disable-next-line: no-inferrable-types
   myImages: string = 'assets/images/c3.png';
-  // tslint:disable-next-line: no-inferrable-types
   isLogin: boolean = false;
-  // tslint:disable-next-line: variable-name
-  constructor(public _AuthService: AuthService)
+  constructor(public _AuthService: AuthService, public _Router:Router)
   {
     _AuthService.userData.subscribe(data =>
       {
@@ -27,7 +24,12 @@ export class NavbarComponent implements OnInit {
       }
       });
   }
-
+  logOut()
+      {
+        localStorage.clear()
+        this._Router.navigate(['/signin'])
+        this.isLogin = false;
+      }
   ngOnInit(): void {
   }
 

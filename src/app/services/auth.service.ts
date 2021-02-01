@@ -29,4 +29,8 @@ export class AuthService {
     let infoUser = new userData(user.first_name , user.last_name , user.email , token );
     this. userData .next(infoUser);
   }
+  isLogedIn()
+  {
+    return !!localStorage.getItem("TOKEN")
+  }
 }

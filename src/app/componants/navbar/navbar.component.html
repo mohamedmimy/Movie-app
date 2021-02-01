@@ -2,32 +2,34 @@
   <a class="navbar-brand" href="#"><i class="fas fa-film    "></i> <span>Movies</span></a>
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
     aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
-  <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Home <span class="sr-only">(current)</span></a>
+  <div class="collapse navbar-collapse d-flex justify-content-around" id="collapsibleNavId">
+    <ul  class="navbar-nav  mt-2" >  <!-- fire function has a problame-->
+      <li class="nav-item " >
+        <a class="nav-link" *ngIf ='isLogin == true' routerLinkActive="active" routerLink='/UpComing'>Up Coming <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Treanding Movies</a>
+        <a class="nav-link" *ngIf ='isLogin == true' routerLinkActive="active" routerLink='/home'>Treanding Movies</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/trending-tv'> TvShows</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf ='isLogin == true' routerLink='/home'>Link</a>
+        <a class="nav-link" *ngIf ='isLogin == true' routerLinkActive="active" routerLink='/trending-tv'> TvShows</a>
       </li>
     </ul>
-    <ul class="navbar-nav ulSpace ml-auto pt-3 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link active "  routerLink='/register'>Sign Up</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"  routerLink='/signin'>Sign in</a>
-      </li>
-    </ul>
+    <div class="dropdown" *ngIf= "!_AuthService.isLogedIn()">
+      <button class="btn btn-lg btColor dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Login
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item"  routerLink='/register'>Sign Up</a>
+        <a class="dropdown-item"  routerLink='/signin'>Sign in</a>
+      </div>
+    </div>
+    <div class="dropdown" *ngIf= "_AuthService.isLogedIn()">
+      <button class="btn btn-lg btColor dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Logout
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)= "logOut()">Logout</a>
+      </div>
+    </div>
   </div>
 </nav>

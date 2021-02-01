@@ -1,0 +1,24 @@
+<div class="tranding-tv my-5">
+  <div class="row">
+    <div class="col-md-4 d-flex align-items-center">
+      <h2>
+        Up Coming  <br>
+
+      </h2>
+    </div>
+    <div *ngFor = 'let movie of UpComing' class="col-md-2 text-center  font-italic text-muted">
+      <img [src]= "imgPrefix+movie.poster_path" class="w-100 rounded">
+      <h5>{{movie.title}}</h5>
+      <div class="vote rounded-bottom">
+        <p>{{movie.vote_average}}</p>
+        <p>{{movie.overview}}</p>
+      </div>
+
+    </div>
+  </div>
+  <!-- <ul>
+    <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
+  </ul>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+</div>

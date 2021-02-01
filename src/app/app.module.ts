@@ -12,7 +12,7 @@ import { RegisterComponent } from './componants/register/register.component';
 import { LoginComponent } from './componants/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { TrandingTvComponent } from './componants/tranding-tv/tranding-tv.component';
-
+import { UpComingComponent } from '../app/componants/up-coming/up-coming.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { TrandingTvComponent } from './componants/tranding-tv/tranding-tv.compon
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    TrandingTvComponent
+    TrandingTvComponent,
+    UpComingComponent,
   ],
   imports: [
     BrowserModule,
